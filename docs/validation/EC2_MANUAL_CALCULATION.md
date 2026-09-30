@@ -10,6 +10,18 @@ https://aws.amazon.com/compute/sla/historical/
 
 This worksheet is for Phase 0 concierge audits. It is not the future production rule engine.
 
+## Historical applicability gate
+
+This worksheet implements the **monthly EC2 Instance-Level commitment family visible in the May 2022/current SLA versions**. Do not use it merely because the incident involved a single EC2 instance.
+
+Before Section 1, follow `HISTORICAL_RULE_SELECTION.md`.
+
+Known material historical differences:
+- July 2020 and March 2019 versions use a Single EC2 **Hourly Uptime Percentage >=90%** mechanism, with the failed instance hour not charged;
+- February 2018 is based on Region Unavailability and explicitly excludes individual-instance failures not attributable to Region Unavailability.
+
+If the reviewer cannot establish that the monthly Instance-Level commitment applies to the incident, stop with `REVIEW_REQUIRED`.
+
 ## 0. Decision states
 
 Only these outputs are permitted:
