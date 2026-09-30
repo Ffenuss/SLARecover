@@ -9,3 +9,16 @@ Current Phase 0 rules:
 - production claim submission is not implemented.
 
 A private vulnerability-reporting channel will be configured before external production use.
+
+## Public-repository CI hygiene
+
+Phase 0 CI scans Git-tracked project text for conservative high-confidence patterns:
+- plausible AWS access key IDs;
+- assigned AWS secret access keys/session tokens;
+- private-key blocks;
+- secret-bearing file extensions;
+- customer/billing/support evidence-like filenames with high-risk data extensions.
+
+Safe documentation should use obvious placeholders such as `<placeholder>` and must never contain a realistic credential-shaped value.
+
+This scanner is defense in depth, not a substitute for credential rotation, GitHub secret scanning, private evidence handling, or customer-approved storage controls.
