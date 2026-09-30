@@ -83,3 +83,27 @@ Return `REVIEW_REQUIRED` when:
 ## Phase 0 rule
 
 A real historical case is preferable to a synthetic “perfect” case, but uncertainty is not permission to guess. A correct `REVIEW_REQUIRED` result is valid validation evidence.
+
+## Source snapshot provenance
+
+A provider page's visible `Last Updated` label is not enough to establish legal applicability.
+
+When an official source snapshot has been captured in the private workspace, create provenance metadata locally:
+
+```bash
+python scripts/source_snapshot_manifest.py create /private/source/compute-sla.html \
+  --service ec2 \
+  --source-url https://aws.amazon.com/compute/sla/ \
+  --source-last-updated 2022-05-25 \
+  --retrieved-at-utc 2026-09-30T12:00:00Z \
+  --pretty
+```
+
+The generated manifest:
+- hashes the local bytes with SHA-256;
+- emits only the basename, not the full private path;
+- records the official URL and provider-observed date;
+- sets `applicability_status=UNPROVEN`;
+- leaves `effective_from/effective_until` null.
+
+A reviewer must separately establish historical applicability before those dates can be populated in a reviewed record. Real source bytes and completed provenance records stay in the controlled private workspace unless their publication rights are separately established.
