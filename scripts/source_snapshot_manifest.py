@@ -106,6 +106,10 @@ def validate_manifest(data: object) -> dict:
     if data["applicability_status"] not in {"UNPROVEN", "REVIEWED"}:
         raise SourceManifestError("unsupported applicability_status")
 
+    for key in ("effective_from", "effective_until"):
+        if data[key] is not None:
+            require_date(data[key], key)
+
     if data["applicability_status"] == "UNPROVEN":
         if data["effective_from"] is not None or data["effective_until"] is not None:
             raise SourceManifestError(
