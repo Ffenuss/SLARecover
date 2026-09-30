@@ -26,3 +26,11 @@ Record only redacted/aggregated validation observations here. Keep raw partner e
 ## Workflow
 
 Problem interview -> score ICP fit -> ask for design-partner commitment -> screen incident/evidence -> run manual concierge audit -> calculate twice -> build manual Claim Pack -> record outcome/economics -> update Phase 0 decision evidence.
+
+## Real-case evidence handling
+
+Before accepting any real design-partner evidence:
+- use `REAL_CASE_READINESS_CHECKLIST.md`;
+- follow `PHASE0_EVIDENCE_INTAKE.md`;
+- keep the completed `PHASE0_EVIDENCE_MANIFEST_TEMPLATE.md` only in the private case workspace;
+- never place raw customer evidence in this public repository.
