@@ -1,0 +1,67 @@
+name: Phase 0 validation
+
+on:
+  pull_request:
+    paths:
+      - "README.md"
+      - "docs/**"
+      - "rules/**"
+      - "fixtures/**"
+      - ".github/workflows/phase0-validation.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-slim
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7.0.1
+
+      - name: Validate Phase 0 repository invariants
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          required = [
+              "README.md",
+              "docs/PRODUCT.md",
+              "docs/ARCHITECTURE.md",
+              "docs/ROADMAP.md",
+              "docs/SECURITY.md",
+              "docs/THREAT_MODEL.md",
+              "docs/DATA_MODEL.md",
+              "docs/RULE_ENGINE.md",
+              "docs/DECISIONS.md",
+              "SECURITY.md",
+              "CONTRIBUTING.md",
+              ".env.example",
+          ]
+
+          missing = [p for p in required if not Path(p).is_file()]
+          if missing:
+              raise SystemExit(f"Missing required files: {missing}")
+
+          rule_files = list(Path("rules").rglob("*.json"))
+          if not rule_files:
+              raise SystemExit("No rule JSON files found")
+
+          for path in rule_files:
+              data = json.loads(path.read_text(encoding="utf-8"))
+              if ".draft." in path.name and data.get("status") != "DRAFT":
+                  raise SystemExit(f"{path}: draft file must have status DRAFT")
+              for key in ("provider", "service", "ruleset_id", "version", "status", "source_url"):
+                  if not data.get(key):
+                      raise SystemExit(f"{path}: missing required key {key}")
+
+          tracked = [str(p) for p in Path(".").rglob(".env") if ".git" not in p.parts]
+          if tracked:
+              raise SystemExit(f"Real .env files are forbidden: {tracked}")
+
+          print(f"Validated {len(required)} required files and {len(rule_files)} rule file(s).")
+          PY
