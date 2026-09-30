@@ -27,6 +27,18 @@ Use organization-level status only. Detailed correspondence/evidence belongs in 
 | ARAADIGIT | contact@araadigit.com | CONTACTED | — | — | — | — | — | 2026-10-01 |
 | Cloud Kinetics | ckanz@cloud-kinetics.com | CONTACTED | — | — | — | — | — | 2026-10-01 |
 | HabileLabs | info@habilelabs.io | CONTACTED | — | — | — | — | — | 2026-10-01 |
+| Cloudec | info@cloudec.com.au | CONTACTED | — | — | — | — | — | 2026-10-01 |
+| FinOptik | sales@finoptik.io | CONTACTED | — | — | — | — | — | 2026-10-01 |
+| Steamhaus | hello@steamhaus.co.uk | CONTACTED | — | — | — | — | — | 2026-10-01 |
+| Valorem Cloud | contact@valoremcloud.com bounced; alternate required | NOT_CONTACTED | — | — | — | — | — | 2026-10-01 |
+| Perfsys | company@perfsys.com | CONTACTED | — | — | — | — | — | 2026-10-01 |
+| Trustsoft | info@trustsoft.eu | CONTACTED | — | — | — | — | — | 2026-10-01 |
+| Sentasity | support@sentasity.com | CONTACTED | — | — | — | — | — | 2026-10-01 |
+| FinOps Control | support@finopscontrol.com | CONTACTED | — | — | — | — | — | 2026-10-01 |
+| T-Systems | aws-info@t-system.com | CONTACTED | — | — | — | — | — | 2026-10-01 |
+| Mobilise Cloud | info@mobilise.cloud | CONTACTED | — | — | — | — | — | 2026-10-01 |
+| SquareOps | consult@squareops.com | CONTACTED | — | — | — | — | — | 2026-10-01 |
+| beSharp | sales@besharp.it | CONTACTED | — | — | — | — | — | 2026-10-01 |
 
 ## Status vocabulary
 
@@ -108,3 +120,20 @@ Wave 3 counts at send confirmation:
 - real cases received: 0
 
 Wave 3 CTA explicitly requires no meeting: prospects may complete a short written Q&A or provide one historical EC2 incident directly.
+
+
+## Wave 4 execution — 2026-10-01
+
+Written-first outreach was sent individually to 12 additional organizations.
+
+Delivery state at immediate post-send check:
+- Gmail SENT confirmations: 12
+- immediate delivery failures: 1 (Valorem Cloud)
+- successfully contacted in wave: 11
+- cumulative successfully contacted: 31
+- human replies: 0 at latest check
+- written interviews completed: 0
+- design-partner commitments: 0
+- real cases received: 0
+
+Valorem Cloud is excluded from CONTACTED because the published address returned a delivery failure.
