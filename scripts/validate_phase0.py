@@ -27,6 +27,7 @@ REQUIRED_REPO_FILES = (
     "CONTRIBUTING.md",
     ".env.example",
     "schemas/phase0-aws-rule-v1.schema.json",
+    "schemas/phase0-evidence-manifest-v1.schema.json",
 )
 
 RULE_REQUIRED_KEYS = (
