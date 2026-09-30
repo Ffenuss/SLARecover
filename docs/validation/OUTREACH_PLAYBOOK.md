@@ -12,11 +12,17 @@ The offer is a **free Historical SLA Recovery Audit** for one or two AWS EC2 inc
 - the partner/customer reviews the calculation and submits any live claim themselves;
 - sensitive evidence stays outside the public repository.
 
-## Primary ask
+## Primary ask — written-first
 
-Ask for a 20–30 minute problem interview with the person responsible for AWS operations, FinOps, managed services or cloud commercial management.
+Phase 0 does **not** require meetings or calls.
 
-Only after confirming the problem/evidence pattern, ask for one real/redacted incident for the audit.
+The default first-contact CTA is asynchronous:
+1. reply by email to a short written Q&A; **or**
+2. share one historical EC2 incident suitable for a free manual SLA audit.
+
+A written response counts toward the problem-interview target when it answers the same factual questions required by the interview guide. If a suitable real incident is available, start the audit immediately rather than waiting for the full interview target.
+
+Calls/meetings are optional only if the prospect explicitly prefers them.
 
 ## First-contact email — English
 
@@ -34,7 +40,7 @@ The useful outcome can be either:
 - a reproducible Claim Pack / potential credit; or
 - a clear finding that the evidence is insufficient, together with exactly what was missing.
 
-Would someone responsible for AWS operations or FinOps be open to a 20–30 minute problem interview?
+No meeting is required. If this is relevant, you can simply reply by email. I can either send a short written set of questions, or—if you have a suitable historical EC2 incident—we can audit that case directly.
 
 Best regards,
 SLARecover
@@ -53,12 +59,12 @@ Dafür suchen wir wenige Design Partner für einen kostenlosen manuellen Audit v
 
 Ein valides Ergebnis kann auch sein, dass die vorhandene Evidenz nicht ausreicht — dann dokumentieren wir exakt, welche Nachweise fehlen.
 
-Wäre jemand aus AWS Operations, Managed Services oder FinOps für ein 20–30-minütiges Problem-Interview offen?
+Ein Termin ist nicht nötig. Wenn das Thema relevant ist, genügt eine Antwort per E-Mail. Ich kann entweder einige kurze schriftliche Fragen senden oder – falls ein geeigneter historischer EC2-Incident vorliegt – diesen Fall direkt prüfen.
 
 Viele Grüße
 SLARecover
 
-## Follow-up after 4–7 business days
+## Follow-up after 2–3 business days
 
 Keep the follow-up factual and short:
 
@@ -106,3 +112,19 @@ Track separately:
 - outcome confirmed.
 
 The Phase 0 target is several genuine commitments, not a vanity response rate.
+
+
+## Written interview completion rule
+
+A written problem interview is complete when the correspondence establishes enough of the following to support Phase 0 analysis:
+- respondent role / responsibility relevant to AWS operations, FinOps or managed services;
+- whether the organization manages meaningful AWS workloads or multiple customer accounts;
+- whether material AWS incidents occur and how often;
+- whether SLA/service-credit claims are currently identified/submitted;
+- who owns the process today;
+- what operational/request/billing evidence is normally retained;
+- whether missing/expired evidence is a recurring blocker;
+- whether a deterministic Claim Pack would be useful;
+- willingness to provide one safely redacted historical case or a concrete reason this is impossible.
+
+Do not require synchronous contact merely to count an interview.
