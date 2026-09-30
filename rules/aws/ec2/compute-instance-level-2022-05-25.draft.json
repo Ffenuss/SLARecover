@@ -1,0 +1,35 @@
+{
+  "provider": "aws",
+  "service": "ec2",
+  "ruleset_id": "aws-ec2-instance-level-compute-sla",
+  "version": "draft-2026-09-30",
+  "status": "DRAFT",
+  "source_url": "https://aws.amazon.com/compute/sla/",
+  "source_last_updated": "2022-05-25",
+  "effective_from": null,
+  "effective_until": null,
+  "source_snapshot_sha256": null,
+  "scope": "Single EC2 Instance / Instance-Level SLA only",
+  "measurement_period": "monthly_billing_cycle",
+  "interval": "1 minute",
+  "formula": "100 - percentage_of_minutes_unavailable",
+  "unavailable_definition": "single instance has no external connectivity",
+  "credit_tiers": [
+    {"uptime_lt": "99.5", "uptime_gte": "99.0", "credit_percent": 10},
+    {"uptime_lt": "99.0", "uptime_gte": "95.0", "credit_percent": 30},
+    {"uptime_lt": "95.0", "credit_percent": 100}
+  ],
+  "claim_deadline": "end_of_second_billing_cycle_after_incident",
+  "claim_requirements": [
+    "subject: Amazon Compute SLA Credit Request – Instance-Level Claim",
+    "incident dates and times",
+    "affected AWS region and availability zone",
+    "affected EC2 instance resource IDs",
+    "request logs and other data necessary for AWS to validate the outage"
+  ],
+  "notes": [
+    "DRAFT only: effective_from and source snapshot hash are unresolved and block activation.",
+    "EC2 CloudWatch status checks may corroborate an incident but do not by themselves prove the SLA definition of no external connectivity.",
+    "Region-Level SLA is excluded from the first vertical prototype."
+  ]
+}
