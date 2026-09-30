@@ -28,6 +28,7 @@ REQUIRED_REPO_FILES = (
     ".env.example",
     "schemas/phase0-aws-rule-v1.schema.json",
     "schemas/phase0-evidence-manifest-v1.schema.json",
+    "scripts/check_phase0.py",
 )
 
 RULE_REQUIRED_KEYS = (
