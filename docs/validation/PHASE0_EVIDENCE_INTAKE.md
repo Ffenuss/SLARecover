@@ -166,6 +166,24 @@ Get-FileHash evidence-file -Algorithm SHA256
 
 Do not rely on filename alone as evidence identity.
 
+### Repository hashing utility
+
+For a local Phase 0 workspace, the repository provides a standard-library helper that reads the source file without modifying/copying/uploading it:
+
+```bash
+python scripts/hash_artifact.py /private/case/path/evidence-file --class RAW_ORIGINAL --pretty
+```
+
+The JSON output contains:
+- filename only (not the full local path);
+- byte size;
+- SHA-256;
+- observed file mtime in UTC;
+- hash timestamp in UTC;
+- optional Phase 0 artifact class.
+
+If size or mtime changes during hashing, the utility fails and the manifest must be discarded/recreated. The generated JSON belongs in the private case manifest, not the public repository when it describes customer evidence.
+
 ## 8. Raw immutability rule
 
 Once a RAW_ORIGINAL hash is recorded:
