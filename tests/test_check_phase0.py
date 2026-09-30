@@ -16,13 +16,14 @@ SPEC.loader.exec_module(check_phase0)
 class CheckPhase0Tests(unittest.TestCase):
     def test_check_list_uses_current_python_and_expected_steps(self):
         steps = check_phase0.checks()
-        self.assertEqual(len(steps), 3)
+        self.assertEqual(len(steps), 4)
         for _, command in steps:
             self.assertEqual(command[0], sys.executable)
 
         self.assertIn("scripts/validate_phase0.py", steps[0][1])
         self.assertIn("scripts/validate_evidence_manifest.py", steps[1][1])
-        self.assertIn("unittest", steps[2][1])
+        self.assertIn("scripts/source_snapshot_manifest.py", steps[2][1])
+        self.assertIn("unittest", steps[3][1])
 
     def test_fail_fast_returns_first_failure_code(self):
         calls = []
@@ -45,7 +46,7 @@ class CheckPhase0Tests(unittest.TestCase):
 
         result = check_phase0.run_checks(fake_runner)
         self.assertEqual(result, 0)
-        self.assertEqual(len(calls), 3)
+        self.assertEqual(len(calls), 4)
 
 
 if __name__ == "__main__":
