@@ -27,9 +27,10 @@ Goal: prove real recoverable value exists, customers will provide acceptable acc
 ### Entry status
 
 - ICP/business hypothesis: documented.
-- Access to several potential design partners: **not evidenced in the project materials**.
+- Access to several potential design partners: **not yet evidenced; outreach pipeline prepared but not executed**.
 - GitHub repository: available.
-- AWS candidate SLA research: started 2026-09-30.
+- AWS SLA corpus v0: researched/structured as non-active DRAFT rules for EC2, S3 and RDS.
+- Current gate status: **BLOCKED ON EXTERNAL VALIDATION**; see `docs/validation/PHASE0_GATE_EVIDENCE.md`.
 
 ### Required Phase 0 artifacts
 
@@ -48,3 +49,5 @@ Goal: prove real recoverable value exists, customers will provide acceptable acc
 Phase 0 closes only when several real design-partner commitments exist, a manual audit on real data finds recoverable or credibly recoverable value, legal review finds no blocking prohibition, and an explicit GO/PIVOT/NO-GO decision is recorded.
 
 Until then, Phase 1 production development does not start.
+
+The formal gate evidence register is `docs/validation/PHASE0_GATE_EVIDENCE.md`. The decision artifact template is `docs/validation/GO_PIVOT_NO_GO_TEMPLATE.md`.
