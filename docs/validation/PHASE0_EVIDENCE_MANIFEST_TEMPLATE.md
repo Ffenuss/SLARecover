@@ -118,3 +118,25 @@ If inputs change, create a new calculation version. Do not overwrite the prior r
 - Manifest SHA-256:
 - Last updated UTC:
 - Reviewer:
+
+## Machine-readable private manifest
+
+For a real case, prefer a private JSON manifest conforming to:
+`schemas/phase0-evidence-manifest-v1.schema.json`.
+
+Validate locally before using the manifest for an audit:
+
+```bash
+python scripts/validate_evidence_manifest.py /private/case/manifest/evidence-manifest.json
+```
+
+The local validator additionally enforces cross-reference rules that JSON Schema alone does not express here:
+- unique evidence IDs;
+- all parent/input references resolve;
+- RAW_ORIGINAL has no derivation parents;
+- REDACTED_COPY and NORMALIZED_DERIVATIVE require provenance parents;
+- CALCULATION_OUTPUT pins input evidence plus ruleset ID/version;
+- provenance graph is acyclic;
+- filenames are basenames, not leaked private filesystem paths.
+
+Completed customer manifests remain private and must not be committed to this repository.

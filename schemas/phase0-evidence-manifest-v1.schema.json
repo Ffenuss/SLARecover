@@ -1,0 +1,132 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://slarecover.local/schemas/phase0-evidence-manifest-v1.schema.json",
+  "title": "SLARecover Phase 0 Evidence Manifest v1",
+  "description": "Private case-manifest contract for manual Phase 0 evidence provenance. Completed customer manifests must not be committed publicly.",
+  "type": "object",
+  "required": [
+    "manifest_version",
+    "case_id",
+    "provider",
+    "service",
+    "opened_utc",
+    "artifacts"
+  ],
+  "properties": {
+    "manifest_version": {
+      "const": "phase0-evidence-manifest-v1"
+    },
+    "case_id": {
+      "type": "string",
+      "pattern": "^P0-[0-9]{4}-[0-9]{4}$"
+    },
+    "provider": {
+      "const": "aws"
+    },
+    "service": {
+      "enum": [
+        "ec2",
+        "s3",
+        "rds"
+      ]
+    },
+    "opened_utc": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "artifacts": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "evidence_id",
+          "class",
+          "filename",
+          "source",
+          "received_utc",
+          "size_bytes",
+          "sha256",
+          "status"
+        ],
+        "properties": {
+          "evidence_id": {
+            "type": "string",
+            "pattern": "^E-[0-9]{3,}$"
+          },
+          "class": {
+            "enum": [
+              "RAW_ORIGINAL",
+              "REDACTED_COPY",
+              "NORMALIZED_DERIVATIVE",
+              "CALCULATION_OUTPUT"
+            ]
+          },
+          "filename": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "^[^/\\\\\\\\]+$"
+          },
+          "source": {
+            "type": "string",
+            "minLength": 1
+          },
+          "received_utc": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "size_bytes": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "sha256": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$"
+          },
+          "status": {
+            "enum": [
+              "RECEIVED",
+              "ADMITTED",
+              "QUARANTINED",
+              "SUPERSEDED",
+              "DELETED",
+              "RETURNED"
+            ]
+          },
+          "parent_evidence_ids": {
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "pattern": "^E-[0-9]{3,}$"
+            }
+          },
+          "input_evidence_ids": {
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "pattern": "^E-[0-9]{3,}$"
+            }
+          },
+          "transformation": {
+            "type": "string",
+            "minLength": 1
+          },
+          "ruleset_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "ruleset_version": {
+            "type": "string",
+            "minLength": 1
+          },
+          "private_storage_ref": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    }
+  }
+}

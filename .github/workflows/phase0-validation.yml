@@ -26,5 +26,8 @@ jobs:
       - name: Validate Phase 0 repository invariants and rule contracts
         run: python scripts/validate_phase0.py
 
-      - name: Test Phase 0 validator
+      - name: Validate synthetic evidence manifest
+        run: python scripts/validate_evidence_manifest.py fixtures/phase0/evidence-manifest.synthetic.json
+
+      - name: Test Phase 0 validator and tooling
         run: python -m unittest discover -s tests -p "test_*.py"

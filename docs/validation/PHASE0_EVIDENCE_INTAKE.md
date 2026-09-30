@@ -244,6 +244,12 @@ If a live credential is discovered:
 
 Use `PHASE0_EVIDENCE_MANIFEST_TEMPLATE.md`.
 
+For machine-readable private case manifests, use `schemas/phase0-evidence-manifest-v1.schema.json` and validate locally with:
+
+```bash
+python scripts/validate_evidence_manifest.py /private/case/manifest/evidence-manifest.json
+```
+
 Every calculation/Claim Pack must be traceable to the exact evidence IDs/hashes it used.
 
 ## 13. Evidence sufficiency decision

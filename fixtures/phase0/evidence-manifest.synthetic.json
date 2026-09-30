@@ -1,0 +1,49 @@
+{
+  "manifest_version": "phase0-evidence-manifest-v1",
+  "case_id": "P0-2026-0001",
+  "provider": "aws",
+  "service": "ec2",
+  "opened_utc": "2026-09-30T12:00:00Z",
+  "artifacts": [
+    {
+      "evidence_id": "E-001",
+      "class": "RAW_ORIGINAL",
+      "filename": "synthetic-request-log.txt",
+      "source": "synthetic-test-fixture",
+      "received_utc": "2026-09-30T12:01:00Z",
+      "size_bytes": 3,
+      "sha256": "ba7816bf8f01cfea414140de5dae2223b00361a396177a9cb410ff61f20015ad",
+      "status": "ADMITTED"
+    },
+    {
+      "evidence_id": "E-002",
+      "class": "NORMALIZED_DERIVATIVE",
+      "filename": "synthetic-timeline.json",
+      "source": "synthetic-test-fixture",
+      "received_utc": "2026-09-30T12:02:00Z",
+      "size_bytes": 2,
+      "sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+      "status": "ADMITTED",
+      "parent_evidence_ids": [
+        "E-001"
+      ],
+      "transformation": "synthetic normalization for CI fixture"
+    },
+    {
+      "evidence_id": "E-003",
+      "class": "CALCULATION_OUTPUT",
+      "filename": "synthetic-calculation.json",
+      "source": "synthetic-test-fixture",
+      "received_utc": "2026-09-30T12:03:00Z",
+      "size_bytes": 2,
+      "sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+      "status": "ADMITTED",
+      "input_evidence_ids": [
+        "E-002"
+      ],
+      "transformation": "synthetic calculation-output provenance only",
+      "ruleset_id": "aws-ec2-instance-level-compute-sla",
+      "ruleset_version": "draft-2026-09-30"
+    }
+  ]
+}
