@@ -117,6 +117,10 @@
   ],
   "notes": [
     "DRAFT only; not approved for financial decisions.",
-    "Generic CloudWatch DB metrics do not by themselves prove that all connection requests failed."
-  ]
+    "Generic CloudWatch DB metrics do not by themselves prove that all connection requests failed.",
+    "Historical incident selection must not assume source_last_updated equals effective_from; ambiguous version boundaries return REVIEW_REQUIRED."
+  ],
+  "source_version_observed_date": "2024-01-22",
+  "source_version_date_semantics": "provider_last_updated_not_proven_effective_from",
+  "historical_version_registry": "rules/aws/rds/VERSIONS.md"
 }
