@@ -1,4 +1,5 @@
 import importlib.util
+import tempfile
 import unittest
 from pathlib import Path
 
@@ -72,9 +73,6 @@ class IdentityValidationTests(unittest.TestCase):
             )
 
 
-if __name__ == "__main__":
-    unittest.main()
-
 
 class RepositoryHygieneTests(unittest.TestCase):
     def test_safe_documentation_mentions_do_not_trigger(self):
@@ -100,3 +98,22 @@ class RepositoryHygieneTests(unittest.TestCase):
             "AWS secret access key assignment",
             validator.secret_findings(synthetic),
         )
+
+
+class EvidenceFilenameTests(unittest.TestCase):
+    def test_sensitive_evidence_filename_is_rejected(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            path = Path(tmp) / "customer-evidence.csv"
+            path.write_text("synthetic", encoding="utf-8")
+            with self.assertRaises(SystemExit):
+                validator.validate_repository_hygiene([path])
+
+    def test_generic_synthetic_csv_is_not_rejected_by_filename_rule(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            path = Path(tmp) / "synthetic-boundary.csv"
+            path.write_text("synthetic", encoding="utf-8")
+            validator.validate_repository_hygiene([path])
+
+
+if __name__ == "__main__":
+    unittest.main()
