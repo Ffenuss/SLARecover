@@ -4,6 +4,8 @@ Status: Phase 0 manual template.
 
 This is a factual technical package for customer review. It is not legal representation and SLARecover does not submit it during Phase 0.
 
+**Applicability:** this template assumes the historical rule-selection step has established that the monthly EC2 Instance-Level commitment family applies. It must not be used for the 2019/2020 hourly Single EC2 mechanism or older Region-Unavailability-only cases without a separate legacy calculation path.
+
 ## 1. Executive summary
 
 - Provider: AWS
