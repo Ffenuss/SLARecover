@@ -15,9 +15,20 @@
   "formula": "100 - percentage_of_minutes_unavailable",
   "unavailable_definition": "single instance has no external connectivity",
   "credit_tiers": [
-    {"uptime_lt": "99.5", "uptime_gte": "99.0", "credit_percent": 10},
-    {"uptime_lt": "99.0", "uptime_gte": "95.0", "credit_percent": 30},
-    {"uptime_lt": "95.0", "credit_percent": 100}
+    {
+      "uptime_lt": "99.5",
+      "uptime_gte": "99.0",
+      "credit_percent": 10
+    },
+    {
+      "uptime_lt": "99.0",
+      "uptime_gte": "95.0",
+      "credit_percent": 30
+    },
+    {
+      "uptime_lt": "95.0",
+      "credit_percent": 100
+    }
   ],
   "claim_deadline": "end_of_second_billing_cycle_after_incident",
   "claim_requirements": [
@@ -30,6 +41,12 @@
   "notes": [
     "DRAFT only: effective_from and source snapshot hash are unresolved and block activation.",
     "EC2 CloudWatch status checks may corroborate an incident but do not by themselves prove the SLA definition of no external connectivity.",
-    "Region-Level SLA is excluded from the first vertical prototype."
-  ]
+    "Region-Level SLA is excluded from the first vertical prototype.",
+    "Current SLA also contains an automatic no-charge provision for any clockhour with more than six minutes of Instance-Level Unavailability; keep this separate from requested Service Credit until billing treatment is verified."
+  ],
+  "automatic_billing_adjustment": {
+    "rule": "AWS will not charge for any Single EC2 Instance that is Unavailable for more than six minutes of a clockhour",
+    "request_required": false,
+    "treatment_in_credit_calculation": "UNRESOLVED_VERIFY_BILLING_EXPORT_BEFORE_DOUBLE_COUNTING"
+  }
 }
