@@ -12,7 +12,7 @@ Use organization-level status only. Detailed correspondence/evidence belongs in 
 | Skaylink | sales@skaylink.com | CONTACTED | — | — | — | — | — | 2026-09-30 |
 | SPIRIT/21 | info@spirit21.com | CONTACTED | — | — | — | — | — | 2026-09-30 |
 | Scale Factory | info@scalefactory.com | CONTACTED | — | — | — | — | — | 2026-09-30 |
-| Duckbill | support@duckbillgroup.com | CONTACTED | — | — | — | — | — | 2026-09-30 |
+| Duckbill | sales@duckbillgroup.com | CONTACTED | — | — | — | — | — | 2026-09-30 |
 | QyrosCloud | admin@qyroscloud.io | CONTACTED | — | — | — | — | — | 2026-09-30 |
 | Noventiq Europe | sales.aws@noventiq.eu | CONTACTED | — | — | — | — | — | 2026-09-30 |
 
@@ -54,7 +54,7 @@ Wave 1 counts:
 ## Wave 2 execution — 2026-09-30
 
 Confirmed individual Gmail sends:
-- Duckbill
+- Duckbill (initial support@ address bounced; corrected resend to sales@duckbillgroup.com confirmed SENT)
 - QyrosCloud
 - Noventiq Europe
 
