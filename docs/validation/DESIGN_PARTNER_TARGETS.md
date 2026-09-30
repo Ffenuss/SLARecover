@@ -50,3 +50,25 @@ A conversation is valuable only if it can answer factual Phase 0 questions. A **
 5. optionally submit a resulting claim themselves if still within deadline and internally approved.
 
 “Interesting idea” does not count.
+
+
+## Wave 3 expansion — written-first
+
+The following organizations were added from current public AWS Marketplace / company sources because they expose AWS managed-services, FinOps, CloudOps or cost-governance responsibilities and a public business email.
+
+| Candidate | Geography | Public fit signals | Public business contact | Phase 0 rationale | Source |
+|---|---|---|---|---|---|
+| Zen Internet / CloudSure | UK | AWS managed services spanning FinOps, SecOps and DevOps | aws@zen.co.uk | Operational + cost-management ownership; likely visibility into incidents and billing | https://aws.amazon.com/marketplace/pp/prodview-pkuqdt3v3p7rs |
+| Cloud Bridge | UK / Europe | AWS Premier Partner; FinOps, governance, 24/7 managed services | support@cloud-bridge.co.uk | Combines billing, operational support and incident response | https://aws.amazon.com/marketplace/pp/prodview-7bfe2obgvvdum |
+| Telefonica Tech UK | UK | AWS FinOps consulting/managed service | info@telefonicatech.co.uk | Enterprise FinOps perspective and quantified cloud-financial workflows | https://aws.amazon.com/marketplace/pp/prodview-d4ew43tiofajc |
+| Colibri Digital | UK | AWS managed services, 24/7 operations, integrated FinOps | hello@colibridigital.io | Strong CloudOps + FinOps overlap | https://aws.amazon.com/marketplace/pp/prodview-jcbxbsqjbcnko |
+| ACKstorm | Spain / Europe | Managed AWS FinOps and cost optimisation | sales@ackstorm.com | Specialist FinOps operator with AWS customer exposure | https://aws.amazon.com/marketplace/pp/prodview-ltogj23ij5bp6 |
+| Dudobi | UK / South Africa | AWS managed services with CloudOps, SecOps, FinOps and DevOps | hello@dudobi.com | Explicit incident operations plus financial management | https://dudobi.com/aws-managed-services |
+| TechNative | Netherlands | Managed AWS, billing, FinOps guidance and DevOps | hello@technative.eu | MSP/reseller-style billing and operational responsibility | https://technative.eu/en/managed-services/ |
+| MeJuvante | Germany | AWS managed operations, incident handling, FinOps/cost control | working@mejuvante.com | DACH enterprise operations with EC2/S3/ECS/EKS exposure | https://aws.amazon.com/marketplace/pp/prodview-dp2wktdxjvq5i |
+| cloudpunks | Germany | AWS consulting, operations and FinOps foundations | office@cloudpunks.de | Smaller DACH AWS specialist; potentially faster written feedback | https://www.cloudpunks.de/leistungen/aws/ |
+| ARAADIGIT | UK | FinOps as a Service / Cloud Financial Management | contact@araadigit.com | FinOps-focused independent validation target | https://www.applytosupply.digitalmarketplace.service.gov.uk/g-cloud/services/745180497902479 |
+| Cloud Kinetics | Europe / global | Cloud MSP with FinOps managed service | ckanz@cloud-kinetics.com | Managed-service + FinOps exposure across enterprise customers | https://aws.amazon.com/marketplace/pp/prodview-wddzqhu7rk3xk |
+| HabileLabs | Global / Europe-serving | AWS Advanced Tier Services; FinOps and cost optimisation | info@habilelabs.io | AWS cost/billing practice with EC2/RDS/S3 scope | https://aws.amazon.com/marketplace/pp/prodview-223ipkqd6xil6 |
+
+Wave 3 uses the written-first CTA: no call is required; prospects may answer a short email Q&A or provide a historical EC2 incident directly.
