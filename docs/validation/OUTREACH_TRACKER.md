@@ -6,12 +6,12 @@ Use organization-level status only. Detailed correspondence/evidence belongs in 
 
 | Organization | Contact channel | Status | Interview | Real case offered | Evidence readiness | Audit | Claim outcome | Last verified |
 |---|---|---|---|---|---|---|---|---|
-| tecRacer | sales@tecracer.com | NOT_CONTACTED | — | — | — | — | — | 2026-09-30 |
-| Cloudar | info@cloudar.be | NOT_CONTACTED | — | — | — | — | — | 2026-09-30 |
-| CloudNation | info@cloudnation.nl | NOT_CONTACTED | — | — | — | — | — | 2026-09-30 |
-| Skaylink | sales@skaylink.com | NOT_CONTACTED | — | — | — | — | — | 2026-09-30 |
-| SPIRIT/21 | info@spirit21.com | NOT_CONTACTED | — | — | — | — | — | 2026-09-30 |
-| Scale Factory | info@scalefactory.com | NOT_CONTACTED | — | — | — | — | — | 2026-09-30 |
+| tecRacer | sales@tecracer.com | CONTACTED | — | — | — | — | — | 2026-09-30 |
+| Cloudar | info@cloudar.be | CONTACTED | — | — | — | — | — | 2026-09-30 |
+| CloudNation | info@cloudnation.nl | CONTACTED | — | — | — | — | — | 2026-09-30 |
+| Skaylink | sales@skaylink.com | CONTACTED | — | — | — | — | — | 2026-09-30 |
+| SPIRIT/21 | info@spirit21.com | CONTACTED | — | — | — | — | — | 2026-09-30 |
+| Scale Factory | info@scalefactory.com | CONTACTED | — | — | — | — | — | 2026-09-30 |
 | Duckbill | support@duckbillgroup.com | NOT_CONTACTED | — | — | — | — | — | 2026-09-30 |
 | QyrosCloud | admin@qyroscloud.io | NOT_CONTACTED | — | — | — | — | — | 2026-09-30 |
 | Noventiq Europe | sales.aws@noventiq.eu | NOT_CONTACTED | — | — | — | — | — | 2026-09-30 |
@@ -29,3 +29,23 @@ Use organization-level status only. Detailed correspondence/evidence belongs in 
 - NOT_FIT
 
 Never mark CONTACTED without confirmed external sending.
+
+
+## Wave 1 execution — 2026-09-30
+
+Confirmed individual Gmail sends:
+- tecRacer
+- Skaylink
+- SPIRIT/21
+- Cloudar
+- CloudNation
+- Scale Factory
+
+Public tracker records only organization-level status. Gmail message identifiers and correspondence remain outside the public repository.
+
+Wave 1 counts:
+- contacted: 6
+- replies: 0 at time of send confirmation
+- interviews completed: 0
+- design-partner commitments: 0
+- real cases received: 0
