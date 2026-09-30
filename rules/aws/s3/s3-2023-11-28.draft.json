@@ -1,0 +1,106 @@
+{
+  "provider": "aws",
+  "service": "s3",
+  "ruleset_id": "aws-s3-sla",
+  "version": "draft-2026-09-30",
+  "status": "DRAFT",
+  "source_url": "https://aws.amazon.com/s3/sla/",
+  "source_last_updated": "2023-11-28",
+  "effective_from": null,
+  "effective_until": null,
+  "source_snapshot_sha256": null,
+  "measurement_period": "monthly_billing_cycle",
+  "interval": "5 minutes",
+  "error_rate": {
+    "scope": "for each request type to an Amazon S3 storage class",
+    "numerator": "InternalError or ServiceUnavailable internal server errors returned by Amazon S3",
+    "denominator": "total requests for that request type during the applicable 5-minute interval",
+    "exclusions": "errors arising directly or indirectly from Amazon S3 SLA Exclusions are omitted",
+    "no_requests_interval_error_rate": "0%"
+  },
+  "monthly_uptime_formula": "100% - average Error Rates from each 5-minute interval in the monthly billing cycle",
+  "credit_tier_families": [
+    {
+      "family_id": "standard_express_glacier_and_other",
+      "applies_to": [
+        "S3 Standard",
+        "S3 Express One Zone",
+        "S3 Glacier Flexible Retrieval",
+        "S3 Glacier Deep Archive",
+        "all other requests not specified in the IA family"
+      ],
+      "tiers": [
+        {
+          "uptime_lt": "99.9",
+          "uptime_gte": "99.0",
+          "credit_percent": 10
+        },
+        {
+          "uptime_lt": "99.0",
+          "uptime_gte": "95.0",
+          "credit_percent": 25
+        },
+        {
+          "uptime_lt": "95.0",
+          "credit_percent": 100
+        }
+      ]
+    },
+    {
+      "family_id": "intelligent_tiering_and_infrequent_access",
+      "applies_to": [
+        "S3 Intelligent-Tiering",
+        "S3 Standard-Infrequent Access",
+        "S3 One Zone-Infrequent Access",
+        "S3 Glacier Instant Retrieval"
+      ],
+      "tiers": [
+        {
+          "uptime_lt": "99.0",
+          "uptime_gte": "98.0",
+          "credit_percent": 10
+        },
+        {
+          "uptime_lt": "98.0",
+          "uptime_gte": "95.0",
+          "credit_percent": 25
+        },
+        {
+          "uptime_lt": "95.0",
+          "credit_percent": 100
+        }
+      ]
+    }
+  ],
+  "billing_basis": "total charges paid for the applicable Amazon S3 storage class in the affected AWS Region, or affected AZ for S3 Express One Zone, for the billing cycle",
+  "minimum_credit_condition": "credit amount for applicable monthly billing cycle must be greater than USD 1",
+  "claim_deadline": "end_of_second_billing_cycle_after_incident",
+  "claim_requirements": [
+    "subject contains: SLA Credit Request",
+    "billing cycle and affected AWS Region",
+    "dates and times of each incident of non-zero Error Rates claimed",
+    "request logs documenting the claimed incidents"
+  ],
+  "exclusions": [
+    "factors outside AWS reasonable control including force majeure or Internet/access issues beyond S3 demarcation point",
+    "customer actions or inactions",
+    "customer equipment, software or other technology",
+    "AWS suspension or termination of customer right to use S3"
+  ],
+  "evidence_requirements": [
+    "complete request denominator by request type/storage class for relevant 5-minute intervals",
+    "InternalError and ServiceUnavailable responses for relevant requests",
+    "billing charges by applicable storage class and Region/AZ",
+    "incident timestamps and billing cycle"
+  ],
+  "unresolved": [
+    "effective_from and immutable official source snapshot/hash",
+    "exact aggregation semantics when multiple request types/storage classes contribute to a claim must be proven before ACTIVE implementation",
+    "non-USD treatment of the >USD 1 minimum condition"
+  ],
+  "notes": [
+    "DRAFT only; not approved for financial decisions.",
+    "Default absence of durable request logs can make retrospective reconstruction impossible.",
+    "Do not substitute CloudWatch request metrics for complete request accounting without validating their suitability against SLA semantics."
+  ]
+}
