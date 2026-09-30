@@ -1,0 +1,122 @@
+{
+  "provider": "aws",
+  "service": "rds",
+  "ruleset_id": "aws-rds-sla",
+  "version": "draft-2026-09-30",
+  "status": "DRAFT",
+  "source_url": "https://aws.amazon.com/rds/sla/",
+  "source_last_updated": "2024-01-22",
+  "effective_from": null,
+  "effective_until": null,
+  "source_snapshot_sha256": null,
+  "measurement_period": "monthly_billing_cycle",
+  "interval": "1 minute",
+  "unavailable_definition": "all connection requests to the applicable running DB resource fail during a 1-minute interval",
+  "partial_month_rule": "if the DB resource ran for only part of the month, it is assumed 100% available for the portion of the month it was not running",
+  "commitments": [
+    {
+      "commitment_id": "multi_az",
+      "applies_to": {
+        "multi_az_db_instance_engines": [
+          "PostgreSQL",
+          "MySQL",
+          "MariaDB",
+          "SQL Server",
+          "Oracle",
+          "Db2"
+        ],
+        "multi_az_db_cluster_engines": [
+          "MySQL",
+          "PostgreSQL"
+        ]
+      },
+      "uptime_metric": "Monthly Uptime Percentage",
+      "service_commitment_percent": "99.95",
+      "tiers": [
+        {
+          "uptime_lt": "99.95",
+          "uptime_gte": "99.0",
+          "credit_percent": 10
+        },
+        {
+          "uptime_lt": "99.0",
+          "uptime_gte": "95.0",
+          "credit_percent": 25
+        },
+        {
+          "uptime_lt": "95.0",
+          "credit_percent": 100
+        }
+      ],
+      "claim_subject": "Amazon RDS SLA Credit Request – Multi-AZ Claim"
+    },
+    {
+      "commitment_id": "single_db",
+      "applies_to": {
+        "single_db_instance_engines": [
+          "PostgreSQL",
+          "MySQL",
+          "MariaDB",
+          "SQL Server",
+          "Oracle",
+          "Db2"
+        ]
+      },
+      "uptime_metric": "Instance-Level Uptime Percentage",
+      "service_commitment_percent": "99.5",
+      "tiers": [
+        {
+          "uptime_lt": "99.5",
+          "uptime_gte": "99.0",
+          "credit_percent": 10
+        },
+        {
+          "uptime_lt": "99.0",
+          "uptime_gte": "95.0",
+          "credit_percent": 25
+        },
+        {
+          "uptime_lt": "95.0",
+          "credit_percent": 100
+        }
+      ],
+      "claim_subject": "Amazon RDS SLA Credit Request – Single-DB Claim"
+    }
+  ],
+  "formula": "100% - percentage of 1-minute intervals during the monthly billing cycle in which the applicable DB resource was Unavailable",
+  "billing_basis": "charges paid for the affected Multi-AZ DB Instance, Multi-AZ DB Cluster, or Single-DB Instance in the affected AWS Region for the monthly billing cycle in which the applicable SLA was not met",
+  "minimum_credit_condition": "credit amount for applicable monthly billing cycle must be greater than USD 1",
+  "claim_deadline": "end_of_second_billing_cycle_after_incident",
+  "non_stacking": "claims under the Multi-AZ commitment and Single-DB commitment may not be combined or stacked",
+  "claim_requirements": [
+    "applicable exact claim subject",
+    "dates and times of each Unavailability incident claimed",
+    "DB Instance IDs and AWS Regions for affected DB resources",
+    "request logs documenting errors and corroborating the claimed outage"
+  ],
+  "exclusions": [
+    "factors outside AWS reasonable control including force majeure or Internet/access issues beyond RDS demarcation point",
+    "voluntary customer actions or inactions",
+    "Micro DB instance class or other classes with similar CPU/memory limitations",
+    "failure to follow basic operational guidelines",
+    "underlying database engine software causing repeated crashes or an inoperable database instance",
+    "long recovery caused by insufficient IO capacity for the workload",
+    "customer equipment, software or other technology",
+    "AWS suspension or termination of customer right to use RDS"
+  ],
+  "evidence_requirements": [
+    "connection request logs sufficient to establish that all connection requests failed in each claimed 1-minute interval",
+    "DB deployment mode/engine and resource identifiers",
+    "resource lifecycle evidence for partial-month cases",
+    "billing charges for the affected DB resource and billing cycle"
+  ],
+  "unresolved": [
+    "effective_from and immutable official source snapshot/hash",
+    "non-USD treatment of the >USD 1 minimum condition",
+    "provider validation requirements beyond request logs in ambiguous engine/crash/exclusion cases"
+  ],
+  "notes": [
+    "DRAFT only; not approved for financial decisions.",
+    "Generic CloudWatch DB metrics do not by themselves prove that all connection requests failed."
+  ]
+}
