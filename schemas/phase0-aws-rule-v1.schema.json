@@ -1,0 +1,120 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://slarecover.local/schemas/phase0-aws-rule-v1.schema.json",
+  "title": "SLARecover Phase 0 AWS Draft Rule Contract v1",
+  "description": "Documentation schema for non-active AWS SLA rule research records. CI enforcement is implemented by scripts/validate_phase0.py without external dependencies.",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "provider",
+    "service",
+    "ruleset_id",
+    "version",
+    "status",
+    "source_url",
+    "source_last_updated",
+    "source_version_observed_date",
+    "source_version_date_semantics",
+    "effective_from",
+    "effective_until",
+    "source_snapshot_sha256",
+    "historical_version_registry",
+    "measurement_period",
+    "claim_deadline",
+    "claim_requirements",
+    "notes",
+    "activation_blockers"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "phase0-aws-rule-v1"
+    },
+    "provider": {
+      "const": "aws"
+    },
+    "service": {
+      "type": "string",
+      "minLength": 1
+    },
+    "ruleset_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^draft-"
+    },
+    "status": {
+      "const": "DRAFT"
+    },
+    "source_url": {
+      "type": "string",
+      "pattern": "^https://aws\\.amazon\\.com/"
+    },
+    "source_last_updated": {
+      "type": "string",
+      "format": "date"
+    },
+    "source_version_observed_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "source_version_date_semantics": {
+      "const": "provider_last_updated_not_proven_effective_from"
+    },
+    "effective_from": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "effective_until": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "source_snapshot_sha256": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "historical_version_registry": {
+      "type": "string",
+      "pattern": "^rules/aws/"
+    },
+    "measurement_period": {
+      "type": "string",
+      "minLength": 1
+    },
+    "claim_deadline": {
+      "type": "string",
+      "minLength": 1
+    },
+    "claim_requirements": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "notes": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "activation_blockers": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    }
+  }
+}

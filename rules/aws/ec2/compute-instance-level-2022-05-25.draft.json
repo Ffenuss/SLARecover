@@ -1,4 +1,5 @@
 {
+  "schema_version": "phase0-aws-rule-v1",
   "provider": "aws",
   "service": "ec2",
   "ruleset_id": "aws-ec2-instance-level-compute-sla",
@@ -52,5 +53,13 @@
   },
   "source_version_observed_date": "2022-05-25",
   "source_version_date_semantics": "provider_last_updated_not_proven_effective_from",
-  "historical_version_registry": "rules/aws/ec2/VERSIONS.md"
+  "historical_version_registry": "rules/aws/ec2/VERSIONS.md",
+  "activation_blockers": [
+    "effective_from/effective_until are not proven from authoritative applicability evidence",
+    "immutable official source snapshot SHA-256 is not captured",
+    "partial-minute normalization is unresolved",
+    "instance lifecycle denominator semantics are unresolved",
+    "automatic >6-minute clockhour no-charge interaction with monthly Service Credit billing basis is unresolved",
+    "non-USD treatment of the >USD 1 minimum condition is unresolved"
+  ]
 }
