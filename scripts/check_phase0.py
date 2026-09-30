@@ -31,6 +31,15 @@ def checks() -> list[tuple[str, list[str]]]:
             ],
         ),
         (
+            "synthetic source-snapshot provenance",
+            [
+                python,
+                "scripts/source_snapshot_manifest.py",
+                "validate",
+                "fixtures/phase0/source-snapshot-manifest.synthetic.json",
+            ],
+        ),
+        (
             "unit tests",
             [
                 python,
