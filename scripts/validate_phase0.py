@@ -8,9 +8,10 @@ eligibility, eligible spend, service credits, or emit financial decisions.
 from __future__ import annotations
 
 import json
+import re
+import subprocess
 from decimal import Decimal, InvalidOperation
 from pathlib import Path
-from typing import Iterable
 
 REQUIRED_REPO_FILES = (
     "README.md",
@@ -52,6 +53,47 @@ RULE_REQUIRED_KEYS = (
 
 SCHEMA_VERSION = "phase0-aws-rule-v1"
 SOURCE_DATE_SEMANTICS = "provider_last_updated_not_proven_effective_from"
+
+TEXT_EXTENSIONS = {
+    ".md", ".json", ".py", ".yml", ".yaml", ".toml", ".txt", ".example", ".ini", ".cfg"
+}
+FORBIDDEN_SECRET_EXTENSIONS = {
+    ".pem", ".key", ".p12", ".pfx", ".jks", ".keystore"
+}
+SENSITIVE_EVIDENCE_EXTENSIONS = {
+    ".csv", ".tsv", ".xls", ".xlsx", ".parquet", ".zip", ".tar", ".gz", ".log", ".db", ".sqlite"
+}
+SENSITIVE_EVIDENCE_NAME = re.compile(
+    r"(?:^|[-_.])(invoice|billing|cur|cost[-_]?and[-_]?usage|"
+    r"support[-_]?case|raw[-_]?log|customer[-_]?evidence)(?:[-_.]|$)",
+    re.IGNORECASE,
+)
+SECRET_PATTERNS = (
+    (
+        "AWS access key ID",
+        re.compile(r"\b(?:AKIA|ASIA)[A-Z0-9]{16}\b"),
+    ),
+    (
+        "AWS secret access key assignment",
+        re.compile(
+            r"(?i)\bAWS_SECRET_ACCESS_KEY\b\s*[:=]\s*[\"']?"
+            r"[A-Za-z0-9/+=]{40}(?![A-Za-z0-9/+=])"
+        ),
+    ),
+    (
+        "AWS session token assignment",
+        re.compile(
+            r"(?i)\bAWS_SESSION_TOKEN\b\s*[:=]\s*[\"']?"
+            r"[A-Za-z0-9/+=]{80,}(?![A-Za-z0-9/+=])"
+        ),
+    ),
+    (
+        "private key block",
+        re.compile(
+            r"-----BEGIN (?:RSA |EC |DSA |OPENSSH )?PRIVATE KEY-----"
+        ),
+    ),
+)
 
 
 def fail(message: str) -> None:
@@ -239,6 +281,67 @@ def validate_rule(path: Path) -> tuple[str, str]:
     return data["ruleset_id"], data["service"]
 
 
+
+def tracked_files() -> list[Path]:
+    """Return Git-tracked files so local caches/venvs are not scanned."""
+    try:
+        output = subprocess.check_output(
+            ["git", "ls-files", "-z"], stderr=subprocess.DEVNULL
+        )
+        return [
+            Path(item.decode("utf-8"))
+            for item in output.split(b"\0")
+            if item
+        ]
+    except (FileNotFoundError, subprocess.CalledProcessError):
+        return [
+            path
+            for path in Path(".").rglob("*")
+            if path.is_file() and ".git" not in path.parts
+        ]
+
+
+def secret_findings(text: str) -> list[str]:
+    findings = []
+    for label, pattern in SECRET_PATTERNS:
+        if pattern.search(text):
+            findings.append(label)
+    return findings
+
+
+def validate_repository_hygiene(paths: list[Path] | None = None) -> None:
+    paths = tracked_files() if paths is None else paths
+    findings: list[str] = []
+
+    for path in paths:
+        if ".git" in path.parts or not path.is_file():
+            continue
+
+        suffix = path.suffix.lower()
+        if suffix in FORBIDDEN_SECRET_EXTENSIONS:
+            findings.append(f"{path}: forbidden secret-bearing file extension {suffix}")
+            continue
+
+        if suffix in SENSITIVE_EVIDENCE_EXTENSIONS and SENSITIVE_EVIDENCE_NAME.search(path.name):
+            findings.append(
+                f"{path}: customer/billing/support evidence-like file is forbidden in public Git"
+            )
+
+        if suffix not in TEXT_EXTENSIONS and path.name != ".env.example":
+            continue
+
+        try:
+            text = path.read_text(encoding="utf-8")
+        except UnicodeDecodeError:
+            continue
+
+        for label in secret_findings(text):
+            findings.append(f"{path}: detected {label}")
+
+    if findings:
+        fail("Repository hygiene violations:\n- " + "\n- ".join(findings))
+
+
 def main() -> None:
     missing = [p for p in REQUIRED_REPO_FILES if not Path(p).is_file()]
     if missing:
@@ -266,6 +369,8 @@ def main() -> None:
     ]
     if real_env_files:
         fail(f"Real .env files are forbidden: {real_env_files}")
+
+    validate_repository_hygiene()
 
     print(
         f"Validated {len(REQUIRED_REPO_FILES)} required files and "
