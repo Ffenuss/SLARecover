@@ -16,7 +16,7 @@ SLA/service-credit recovery is already an identifiable software category in 2026
 | Next Signal | Purpose-built automated SLA refund recovery for AWS/Azure/GCP and other providers | Team review or configurable auto-approval workflow | Annual platform license + success fee; percentage not public on pricing page | Cloud-specific recovery is the core value proposition, not an incidental FinOps feature. CloudSLACredit is its free educational/calculator property. |
 | Ontracko | Vendor accountability/SLA monitoring, breach detection and claim kits across many SaaS/cloud vendors | Generates claim kits; customer filing model is prominently described | Free + 8% of recovered credits; optional $99/month Capacity; partner rev-share | Explicit MSP/consultancy partner/white-label strategy means MSP positioning alone is not differentiation. |
 | Fintropy (Nuvika) | Multi-cloud FinOps plus automated SLA breach recovery | Publicly claims automated filing and tracking | Core approx. $128/mo; SLA add-on ₹8,000/mo; Growth approx. $372/mo; 15% recovered-credit share | Deterministic-rule language and hybrid subscription/success-fee model overlap SLARecover's working thesis. |
-| AllCaps | Contract/invoice recovery platform; AWS SLA evidence audit plus broader contract-rights recovery | AWS tool emphasizes read/quantify only; broader SLA product says monitor/calculate/claim | Free AWS finding; broader Vendor Invoice Audit advertised at $15k fixed fee | Especially close to an evidence-first historical audit thesis; supports EC2 single-instance and request-log evidence framing. |
+| AllCaps | Contract/invoice recovery platform; AWS SLA evidence audit plus broader contract-rights recovery | AWS tool emphasizes read/quantify only; broader SLA product says monitor/calculate/claim | Free AWS finding; broader Vendor Invoice Audit advertised at $15k fixed fee | Especially close to an evidence-first historical audit thesis; supports EC2 single-instance and request-log evidence framing. |\n| Recoupfox | Slack-native recovery agent for Stripe/AWS/Datadog/GitHub with service-credit recovery and negotiation | Public site describes autonomous ticket filing plus approval/negotiation workflows by plan | $0 Starter, $149/month Growth, $499/month Scale | Shows that conversational/agent UX and autonomous filing are also already occupied; public recovery cohort figures are marketing claims and are not independently verified. |
 
 ## Sources
 
@@ -30,7 +30,7 @@ SLA/service-credit recovery is already an identifiable software category in 2026
 - https://www.nuvikatech.com/Fintropy_Overview.html
 - https://www.nuvikatech.com/pricing.html
 - https://studio.allcaps.ai/products/aws-sla-recovery
-- https://www.allcaps.ai/sla-credit-recovery
+- https://www.allcaps.ai/sla-credit-recovery\n- https://www.recoupfox.com/\n- https://www.recoupfox.com/pricing
 
 ## What is not differentiated by itself
 
