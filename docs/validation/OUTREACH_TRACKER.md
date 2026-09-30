@@ -15,6 +15,18 @@ Use organization-level status only. Detailed correspondence/evidence belongs in 
 | Duckbill | support@ + sales@ both bounced; alternate channel required | NOT_CONTACTED | — | — | — | — | — | 2026-09-30 |
 | QyrosCloud | admin@qyroscloud.io | CONTACTED | — | — | — | — | — | 2026-09-30 |
 | Noventiq Europe | sales.aws@noventiq.eu | CONTACTED | — | — | — | — | — | 2026-09-30 |
+| Zen Internet / CloudSure | aws@zen.co.uk | CONTACTED | — | — | — | — | — | 2026-10-01 |
+| Cloud Bridge | support@cloud-bridge.co.uk | CONTACTED | — | — | — | — | — | 2026-10-01 |
+| Telefonica Tech UK | info@telefonicatech.co.uk | CONTACTED | — | — | — | — | — | 2026-10-01 |
+| Colibri Digital | hello@colibridigital.io | CONTACTED | — | — | — | — | — | 2026-10-01 |
+| ACKstorm | sales@ackstorm.com | CONTACTED | — | — | — | — | — | 2026-10-01 |
+| Dudobi | hello@dudobi.com | CONTACTED | — | — | — | — | — | 2026-10-01 |
+| TechNative | hello@technative.eu | CONTACTED | — | — | — | — | — | 2026-10-01 |
+| MeJuvante | working@mejuvante.com | CONTACTED | — | — | — | — | — | 2026-10-01 |
+| cloudpunks | office@cloudpunks.de | CONTACTED | — | — | — | — | — | 2026-10-01 |
+| ARAADIGIT | contact@araadigit.com | CONTACTED | — | — | — | — | — | 2026-10-01 |
+| Cloud Kinetics | ckanz@cloud-kinetics.com | CONTACTED | — | — | — | — | — | 2026-10-01 |
+| HabileLabs | info@habilelabs.io | CONTACTED | — | — | — | — | — | 2026-10-01 |
 
 ## Status vocabulary
 
@@ -67,3 +79,32 @@ Wave 2 counts:
 - real cases received: 0
 
 The initial public-source outreach pipeline has 8 successfully contacted organizations; Duckbill requires a new verified contact channel. Gmail message identifiers and correspondence remain outside the public repository.
+
+
+## Wave 3 execution — 2026-10-01
+
+Written-first outreach was sent individually to:
+- Zen Internet / CloudSure
+- Cloud Bridge
+- Telefonica Tech UK
+- Colibri Digital
+- ACKstorm
+- Dudobi
+- TechNative
+- MeJuvante
+- cloudpunks
+- ARAADIGIT
+- Cloud Kinetics
+- HabileLabs
+
+All 12 sends returned Gmail SENT. No immediate delivery failure was observed at the post-send check.
+
+Wave 3 counts at send confirmation:
+- contacted in wave: 12
+- cumulative successfully contacted: 20
+- human replies: 0
+- written interviews completed: 0
+- design-partner commitments: 0
+- real cases received: 0
+
+Wave 3 CTA explicitly requires no meeting: prospects may complete a short written Q&A or provide one historical EC2 incident directly.
