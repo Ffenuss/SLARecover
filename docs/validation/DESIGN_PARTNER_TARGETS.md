@@ -72,3 +72,23 @@ The following organizations were added from current public AWS Marketplace / com
 | HabileLabs | Global / Europe-serving | AWS Advanced Tier Services; FinOps and cost optimisation | info@habilelabs.io | AWS cost/billing practice with EC2/RDS/S3 scope | https://aws.amazon.com/marketplace/pp/prodview-223ipkqd6xil6 |
 
 Wave 3 uses the written-first CTA: no call is required; prospects may answer a short email Q&A or provide a historical EC2 incident directly.
+
+
+## Wave 4 expansion — written-first
+
+| Candidate | Geography | Public fit signals | Public business contact | Phase 0 rationale | Source |
+|---|---|---|---|---|---|
+| Cloudec | Australia | AWS FinOps managed service; bill validation, governance, optimisation | info@cloudec.com.au | Strong billing/FinOps validation target | https://aws.amazon.com/marketplace/pp/prodview-ixiinihdtbp7s |
+| FinOptik | Global | FinOps assessment/managed-service expertise | sales@finoptik.io | Specialist FinOps feedback on evidence/economics | https://aws.amazon.com/marketplace/pp/prodview-sr34e46werhro |
+| Steamhaus | UK | AWS managed operations, 24/7 incident resolution, proactive FinOps | hello@steamhaus.co.uk | Direct CloudOps + incident + FinOps overlap | https://aws.amazon.com/marketplace/pp/prodview-6mbnnj3pgwfzo |
+| Valorem Cloud | US / remote | AWS cost-optimisation consulting for SaaS | contact@valoremcloud.com | Cost-recovery buyer perspective; address bounced and is not counted as contacted | https://valoremcloud.com/ |
+| Perfsys | Europe / global | AWS cost optimisation and cloud financial management | company@perfsys.com | Billing/usage and FinOps experience | https://aws.amazon.com/marketplace/pp/prodview-pct45jpwnh7b6 |
+| Trustsoft | Czechia / Switzerland | AWS Premier/MSP; 24/7 CloudOps, Managed Billing & FinOps | info@trustsoft.eu | Strong operations + billing responsibility | https://www.trustsoft.eu/ |
+| Sentasity | US / remote | AWS managed billing, FinOps tools and managed services | support@sentasity.com | Managed billing and multi-customer cost workflow | https://sentasity.com/industries/technology |
+| FinOps Control | Global | FinOps, DevOps and operational support across AWS/Azure/GCP | support@finopscontrol.com | Cloud-cost governance plus operations | https://aws.amazon.com/marketplace/pp/prodview-mvboaqzbyt6dq |
+| T-Systems | Germany / Europe | Enterprise AWS managed services and support | aws-info@t-system.com | Enterprise governance/incidents/evidence perspective | https://aws.amazon.com/marketplace/pp/prodview-j6rk2znda4dow |
+| Mobilise Cloud | UK | AWS managed services, monitoring, incident resolution, cost optimisation | info@mobilise.cloud | Strong incident-management and operations fit | https://aws.amazon.com/marketplace/pp/prodview-b7dsknv7e72k4 |
+| SquareOps | Global | AWS partner, 24/7 managed services, incident management, FinOps | consult@squareops.com | AWS operations + FinOps overlap | https://squareops.com/aws-partner-services/ |
+| beSharp | Italy / Europe | AWS Premier Partner; managed operations, incident management, FinOps | sales@besharp.it | Mature AWS CloudOps/FinOps practice | https://aws.amazon.com/marketplace/pp/prodview-6xl4jzm6xgl5e |
+
+Wave 4 uses the same written-only CTA. Valorem Cloud returned a delivery failure and remains uncontacted unless a verified alternate channel is found.
