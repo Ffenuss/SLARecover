@@ -1,0 +1,90 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://slarecover.local/schemas/phase0-source-snapshot-v1.schema.json",
+  "title": "SLARecover Phase 0 Source Snapshot Manifest v1",
+  "description": "Provenance metadata for privately stored provider SLA source bytes. Provider Last Updated metadata is not a legal effective date.",
+  "type": "object",
+  "required": [
+    "manifest_version",
+    "provider",
+    "service",
+    "source_url",
+    "source_last_updated",
+    "source_version_date_semantics",
+    "retrieved_at_utc",
+    "filename",
+    "size_bytes",
+    "sha256",
+    "storage_scope",
+    "effective_from",
+    "effective_until",
+    "applicability_status"
+  ],
+  "properties": {
+    "manifest_version": {
+      "const": "phase0-source-snapshot-v1"
+    },
+    "provider": {
+      "const": "aws"
+    },
+    "service": {
+      "enum": [
+        "ec2",
+        "s3",
+        "rds"
+      ]
+    },
+    "source_url": {
+      "type": "string",
+      "pattern": "^https://aws\\.amazon\\.com/"
+    },
+    "source_last_updated": {
+      "type": "string",
+      "format": "date"
+    },
+    "source_version_date_semantics": {
+      "const": "provider_last_updated_not_proven_effective_from"
+    },
+    "retrieved_at_utc": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "filename": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "^[^/\\\\\\\\]+$"
+    },
+    "size_bytes": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "storage_scope": {
+      "const": "PRIVATE_CONTROLLED"
+    },
+    "effective_from": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "effective_until": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "applicability_status": {
+      "enum": [
+        "UNPROVEN",
+        "REVIEWED"
+      ]
+    },
+    "review_notes": {
+      "type": "string"
+    }
+  }
+}

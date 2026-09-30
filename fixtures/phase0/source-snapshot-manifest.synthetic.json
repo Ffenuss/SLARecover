@@ -1,0 +1,16 @@
+{
+  "manifest_version": "phase0-source-snapshot-v1",
+  "provider": "aws",
+  "service": "ec2",
+  "source_url": "https://aws.amazon.com/compute/sla/",
+  "source_last_updated": "2022-05-25",
+  "source_version_date_semantics": "provider_last_updated_not_proven_effective_from",
+  "retrieved_at_utc": "2026-09-30T12:00:00Z",
+  "filename": "synthetic-aws-compute-sla.html",
+  "size_bytes": 25,
+  "sha256": "0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef",
+  "storage_scope": "PRIVATE_CONTROLLED",
+  "effective_from": null,
+  "effective_until": null,
+  "applicability_status": "UNPROVEN"
+}
